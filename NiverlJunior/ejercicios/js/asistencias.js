@@ -23,10 +23,10 @@ do {
 
 for (const estudiante of estudiantes) {
   if (estudiante.asistencia > 30) {
-    console.log(`El estudiante: ${estudiante.nombre} con un Total de asistencias: ${estudiante.asistencia} se encuentra REPROVADO`);
+    console.log(`El estudiante: ${estudiante.nombre} con un Total de inasistencias: ${estudiante.asistencia} se encuentra REPROVADO`);
     reprovados += 1;
   } else if (estudiante.asistencia <= 30) {
-    console.log(`El estudiante: ${estudiante.nombre} con un Total de asistencias: ${estudiante.asistencia} se encuentra APROVADO`);
+    console.log(`El estudiante: ${estudiante.nombre} con un Total de inasistencias: ${estudiante.asistencia} se encuentra APROVADO`);
     aprovados += 1;
   }
 }
