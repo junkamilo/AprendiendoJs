@@ -81,3 +81,59 @@ const splice = ()=>{
     console.log(Arrays.splice(0,0,"beltran","julian"));
 }
 splice();
+
+
+/**
+ * METODOS ACCESORES
+ */
+//El método join() une todos los elementos de un array (o un array-like object) en una cadena y devuelve esta cadena.
+const join = ()=>{
+    let Arrays = ["juan","sebas","fercho","miguel","pabon"];
+    console.log("Nombres : " + Arrays);
+    let resultado = Arrays.join(" - ");
+    console.log("Nombres unidos por guion : " + resultado);
+}
+join();
+
+//El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido). El array original no se modificará.
+const slice = ()=>{
+    let Arrays = ["juan","sebas","fercho","miguel","pabon"];
+    console.log("Nombres : " + Arrays);
+    //1 inicia desde "sebas"
+    //3 hasta "miguel" pero no lo incluye
+    let resultado = Arrays.slice(1,3);
+    console.log("Nombres seleccionados : " + resultado);
+}
+slice();
+
+//El Metodo filter() crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.
+const filter = ()=>{
+    let numeros = [1,2,3,4,5,6,7,8,9,10];
+    console.log("Numeros : " + numeros);
+    //filtramos los numeros mayores a 5
+    let resultado = numeros.filter(numero => numero > 5);
+    console.log("Numeros mayores a 5 : " + resultado);
+}
+filter();
+
+//El método map() crea un nuevo array con los resultados de la llamada a la función indicada aplicada a cada uno de sus elementos.
+const map = ()=>{
+    let numeros = [1,2,3,4,5,6,7,8,9,10];
+    console.log("Numeros : " + numeros);
+    //multiplicamos por 2 cada elemento del array
+    let resultado = numeros.map(numero => numero * 2);
+    console.log("Numeros multiplicados por 2 : " + resultado);
+}
+map();
+
+//El metod forEach() ejecuta la función indicada una vez por cada elemento del array.
+const forEach = ()=>{
+    let numeros = [1,2,3,4,5,6,7,8,9,10];
+    console.log("Numeros : " + numeros);
+    //sumamos 2 a cada elemento del array
+    numeros.forEach((numero, index) => {
+        numeros[index] = numero + 2;
+    });
+    console.log("Numeros sumados por 2 : " + numeros);
+}
+forEach();
