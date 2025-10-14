@@ -1,12 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Week | Organiza tu Semana</title>
     <link rel="stylesheet" href="/NivelMedio/ejercicios/css/OrganizarDia.css">
-    <title>Organizar dia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <header class="header">
+        <h1>Focus Week 🚀</h1>
+        <p>Organiza tu semana y conquista tus metas cada día.</p>
+    </header>
+
+    <main class="main-container">
+        <section class="form-section">
+            <h2>Añadir nueva tarea</h2>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-input">Tarea:</label>
+                    <input type="text" id="task-input" placeholder="Ej: Ir al gimnasio" required>
+                </div>
+                <div class="form-group">
+                    <label for="day-select">Día:</label>
+                    <select id="day-select">
+                    </select>
+                </div>
+                <button type="submit" class="button-add">
+                    <i class="fas fa-plus-circle"></i> Agregar Tarea
+                </button>
+            </form>
+        </section>
+
+        <section class="tasks-board-section">
+            <h2>Tu Semana Organizada</h2>
+            <div id="tasks-board" class="tasks-board">
+            </div>
+        </section>
+    </main>
+
     <script src="/NivelMedio/ejercicios/js/OrganizarDia.js"></script>
 </body>
+
 </html>

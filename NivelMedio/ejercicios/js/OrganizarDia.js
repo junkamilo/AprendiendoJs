@@ -1,77 +1,172 @@
-//seleccionamos el contenido principal
-const body = document.querySelector("body");
+document.addEventListener("DOMContentLoaded", () => {
+    // === ELEMENTOS DEL DOM ===
+    const form = document.getElementById("task-form");
+    const taskInput = document.getElementById("task-input");
+    const daySelect = document.getElementById("day-select");
+    const tasksBoard = document.getElementById("tasks-board");
 
-//creamos los elementos principales
-const form = document.createElement("form");
-const textarea = document.createElement("textarea");
-const select = document.createElement("select");
-const labelTextare = document.createElement("label");
-const labelselect = document.createElement("label");
-const table = document.createElement("table");
-const thead = document.createElement("thead");
-const tbody = document.createElement("tbody");
-const trSemana = document.createElement("tr");
-const trTareas = document.createElement("tr");
-const tdTareas = document.createElement("td");
-const button = document.createElement("button");
+    // === DATOS ===
+    const diasSemanas = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+    const frasesMotivacionales = [
+        "¡Día conquistado! Excelente trabajo.",
+        "Todas las tareas completas. ¡Eres imparable!",
+        "¡Felicidades! Un paso más cerca de tus metas.",
+        "Productividad al máximo. ¡Sigue así!",
+    ];
 
-//array semana
-const DiasSemanas = [
-    "lunes",
-    "martes",
-    "miercoles",
-    "jueves",
-    "viernes",
-    "sabado",
-    "domingo"
-];
+    // Cargar tareas desde localStorage o inicializar un objeto vacío
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || {};
 
-DiasSemanas.forEach(element => {
-    const thSeman = document.createElement("th");
-    const optiones = document.createElement("option");
+    // === FUNCIONES ===
 
-    //agregamos estilos
-    thSeman.classList.add("thSeman");
+    /**
+     * Guarda el objeto de tareas actual en localStorage.
+     */
+    const saveTasks = () => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    };
 
-    optiones.textContent = element;
-    thSeman.textContent = element;
-    select.append(optiones);
-    trSemana.append(thSeman)
-});
+    /**
+     * Renderiza (dibuja) todas las tareas en el tablero.
+     */
+    const renderTasks = () => {
+        tasksBoard.innerHTML = ""; // Limpiar el tablero antes de dibujar
 
-//agregamos atributos
-button.setAttribute("type","submit");
+        diasSemanas.forEach(dia => {
+            // Crear la columna para cada día
+            const dayColumn = document.createElement("div");
+            dayColumn.className = "day-column";
+            dayColumn.innerHTML = `<h3>${dia}</h3><ul class="task-list" data-day="${dia}"></ul>`;
+            tasksBoard.append(dayColumn);
 
-//agregamos texto
-labelTextare.textContent = "Agrega tus planes";
-labelselect.textContent = "Elige el dia de la semana";
-button.textContent = "Enviar Tareas"
+            const taskList = dayColumn.querySelector(".task-list");
+            
+            // Obtener las tareas del día actual, si no existen, crear un array vacío
+            const tasksDelDia = tasks[dia] || [];
 
-//agregamos estilos
-body.classList.add("body");
-form.classList.add("form");
-table.classList.add("table");
-button.classList.add("button");
+            if (tasksDelDia.length === 0) {
+                taskList.innerHTML = `<li class="task-item-placeholder">No hay tareas.</li>`;
+            } else {
+                tasksDelDia.forEach(task => {
+                    const taskItem = document.createElement("li");
+                    taskItem.className = `task-item ${task.completed ? "completed" : ""}`;
+                    taskItem.setAttribute("data-id", task.id);
 
-//agregamos elementos
-thead.append(trSemana);
-table.append(thead);
-form.append(textarea,select,button);
-body.append(form,table);
-
-form.addEventListener("submit",(e)=>{
-    e.preventDefault();
-    //convertimos los datos en un array
-    const tareasValues = textarea.value;
-    const ArrayTareas = tareasValues.split(",");
-    const information = [{
-        tareas : ArrayTareas,
-        dia : select.value
-    }];
-    console.log(ArrayTareas);
-    console.log(information);
+                    taskItem.innerHTML = `
+                        <span>${task.text}</span>
+                        <div class="task-actions">
+                            <button class="btn-complete"><i class="fas fa-check-circle"></i></button>
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    `;
+                    taskList.append(taskItem);
+                });
+            }
+        });
+    };
     
-    console.log(select.value);
-    
-      
+    /**
+     * Inicializa las opciones del select y las columnas del tablero.
+     */
+    const initializeApp = () => {
+        // Generar opciones del select
+        diasSemanas.forEach(dia => {
+            const option = document.createElement("option");
+            option.value = dia;
+            option.textContent = dia.charAt(0).toUpperCase() + dia.slice(1);
+            daySelect.append(option);
+        });
+        
+        // Renderizar las tareas existentes
+        renderTasks();
+    };
+
+    /**
+     * Muestra una alerta con una frase motivacional aleatoria.
+     */
+    const showMotivationalQuote = () => {
+        const randomIndex = Math.floor(Math.random() * frasesMotivacionales.length);
+        alert(frasesMotivacionales[randomIndex]);
+    };
+
+    // === MANEJO DE EVENTOS ===
+
+    // Evento para agregar una nueva tarea
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const taskText = taskInput.value.trim();
+        const selectedDay = daySelect.value;
+
+        if (!taskText) {
+            alert("Por favor, escribe una tarea.");
+            return;
+        }
+
+        // Si no existe el día en el objeto, lo inicializamos como un array
+        if (!tasks[selectedDay]) {
+            tasks[selectedDay] = [];
+        }
+
+        const newTask = {
+            id: Date.now(), // ID único basado en el tiempo
+            text: taskText,
+            completed: false,
+        };
+
+        tasks[selectedDay].push(newTask);
+
+        saveTasks();
+        renderTasks();
+        form.reset(); // Limpia el formulario
+    });
+
+    // Evento para acciones en las tareas (completar, editar, eliminar)
+    // Usamos delegación de eventos para mayor eficiencia
+    tasksBoard.addEventListener("click", (e) => {
+        const target = e.target;
+        const taskItem = target.closest(".task-item");
+        if (!taskItem) return;
+
+        const taskId = Number(taskItem.getAttribute("data-id"));
+        const day = taskItem.closest(".task-list").getAttribute("data-day");
+        
+        // Encontrar la tarea específica
+        const task = tasks[day].find(t => t.id === taskId);
+
+        // Acción: Completar Tarea
+        if (target.closest(".btn-complete")) {
+            task.completed = !task.completed;
+            saveTasks();
+            renderTasks();
+
+            // Comprobar si todas las tareas del día están completas
+            const allCompleted = tasks[day].every(t => t.completed);
+            if (allCompleted) {
+                setTimeout(() => showMotivationalQuote(), 300); // Pequeño delay para la UI
+            }
+        }
+
+        // Acción: Editar Tarea
+        if (target.closest(".btn-edit")) {
+            const newText = prompt("Edita tu tarea:", task.text);
+            if (newText !== null && newText.trim() !== "") {
+                task.text = newText.trim();
+                saveTasks();
+                renderTasks();
+            }
+        }
+
+        // Acción: Eliminar Tarea
+        if (target.closest(".btn-delete")) {
+            if (confirm("¿Estás seguro de que quieres eliminar esta tarea?")) {
+                tasks[day] = tasks[day].filter(t => t.id !== taskId);
+                saveTasks();
+                renderTasks();
+            }
+        }
+    });
+
+    // === INICIALIZACIÓN DE LA APP ===
+    initializeApp();
 });
