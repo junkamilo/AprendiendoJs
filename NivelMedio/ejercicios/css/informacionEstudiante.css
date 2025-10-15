@@ -1,0 +1,142 @@
+/* ---- Importación de Fuente y Variables ---- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --color-primario: #4A90E2; /* Azul corporativo, confiable */
+    --color-secundario: #F5A623; /* Naranja/amarillo para acentos, creatividad */
+    --color-exito: #50C878; /* Verde para estados positivos */
+    --color-fondo-card: #FFFFFF;
+    --color-fondo-pagina: #F4F6F8;
+    --color-texto-principal: #333333;
+    --color-texto-secundario: #7A7A7A;
+    --sombra-card: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --radio-borde: 15px;
+}
+
+/* ---- Estilos Generales ---- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-fondo-pagina);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* ---- Contenedor Principal de la Card (.content) ---- */
+.content {
+    display: flex; /* Usamos Flexbox para crear dos columnas principales */
+    max-width: 900px;
+    width: 100%;
+    background-color: var(--color-fondo-card);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-card);
+    overflow: hidden; /* Asegura que los bordes redondeados se apliquen a los hijos */
+    transition: all 0.3s ease-in-out;
+}
+
+.content:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- Columna Izquierda: Información del Estudiante ---- */
+.content-information {
+    flex: 1; /* Ocupa el espacio disponible */
+    padding: 2rem;
+    border-right: 1px solid #EAEAEA; /* Línea divisoria sutil */
+    position: relative;
+    background: linear-gradient(135deg, var(--color-fondo-card) 95%, var(--color-primario) 95.1%);
+}
+
+/* ---- Nombre del Estudiante ---- */
+.content-nombre h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+}
+
+/* ---- Contenedor de Items de Información ---- */
+.content-estudiante {
+    display: grid; /* Grid para alinear perfectamente los datos */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+    gap: 1.5rem; /* Espacio entre los items */
+}
+
+/* ---- Items de Información Individuales ---- */
+.item-information .information {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-texto-secundario);
+    text-transform: uppercase; /* Estilo de etiqueta */
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-left: 20px; /* Espacio para el ícono */
+}
+
+/* Iconos decorativos usando pseudo-elementos */
+.item-information:nth-child(1) .information::before { content: '🎂'; margin-right: 8px; position: absolute; left: 0;} /* Edad */
+.item-information:nth-child(2) .information::before { content: '📚'; margin-right: 8px; position: absolute; left: 0;} /* Grado */
+.item-information:nth-child(3) .information::before { content: '🏫'; margin-right: 8px; position: absolute; left: 0;} /* Curso */
+.item-information:nth-child(4) .information::before { content: '⭐'; margin-right: 8px; position: absolute; left: 0;} /* Promedio */
+.item-information:nth-child(6) .information::before { content: '✅'; margin-right: 8px; position: absolute; left: 0;} /* Asistencias */
+.item-information:nth-child(7) .information::before { content: '📍'; margin-right: 8px; position: absolute; left: 0;} /* Dirección */
+
+/* ---- Estilo Específico para Materias ---- */
+.item-information.materias {
+    grid-column: 1 / -1; /* Ocupa las dos columnas */
+    display: flex;
+    flex-wrap: wrap; /* Permite que las materias fluyan en varias líneas */
+    gap: 0.5rem;
+}
+
+.content-materias .item-materias {
+    background-color: #EAF2FB; /* Fondo azul muy claro */
+    color: var(--color-primario);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px; /* Estilo de "píldora" */
+    margin: 0;
+}
+
+/* ---- Columna Derecha: Información del Proyecto ---- */
+.content-proyecto {
+    flex: 0.8; /* Un poco más angosta que la columna de información */
+    padding: 2rem;
+    background-color: #FAFAFC; /* Un fondo ligeramente diferente para distinguir */
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-proyecto h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-texto-principal);
+    margin: 0 0 0.5rem 0;
+}
+
+/* ---- Estado del Proyecto (Badge) ---- */
+.content-estado .item-estado {
+    display: inline-block;
+    background-color: var(--color-exito);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    margin: 0 0 1.5rem 0;
+}
+
+/* ---- Descripción del Proyecto ---- */
+.content-description {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}

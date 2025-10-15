@@ -1,0 +1,152 @@
+[
+  {
+    "nombre": "Juan Camilo Pérez",
+    "edad": 22,
+    "grado": "11°",
+    "curso": "B",
+    "promedio": 4.3,
+    "materias": ["Matemáticas", "Inglés", "Física", "Arte"],
+    "asistencia": "96%",
+    "direccion": "Calle 45 #12-09, Barrio El Prado",
+    "proyecto": {
+      "titulo": "Energías limpias en comunidades rurales",
+      "estado": "En desarrollo",
+      "descripcion": "Implementación de paneles solares en zonas rurales para reducir costos energéticos."
+    }
+  },
+  {
+    "nombre": "María Fernanda Gómez",
+    "edad": 17,
+    "grado": "10°",
+    "curso": "A",
+    "promedio": 4.8,
+    "materias": ["Química", "Biología", "Español", "Música"],
+    "asistencia": "99%",
+    "direccion": "Carrera 7 #23-10, Vereda Altamira",
+    "proyecto": {
+      "titulo": "Huertos escolares ecológicos",
+      "estado": "Finalizado",
+      "descripcion": "Creación de huertos sostenibles para promover la alimentación saludable en el colegio."
+    }
+  },
+  {
+    "nombre": "Carlos Andrés Moreno",
+    "edad": 18,
+    "grado": "11°",
+    "curso": "A",
+    "promedio": 3.9,
+    "materias": ["Historia", "Educación Física", "Tecnología", "Matemáticas"],
+    "asistencia": "91%",
+    "direccion": "Vereda El Divisó, frente a la cancha principal",
+    "proyecto": {
+      "titulo": "Aplicación móvil de tutorías académicas",
+      "estado": "En revisión",
+      "descripcion": "App en JavaScript para conectar estudiantes que ofrecen tutorías con quienes las necesitan."
+    }
+  },
+  {
+    "nombre": "Luisa Valentina Ramírez",
+    "edad": 16,
+    "grado": "9°",
+    "curso": "C",
+    "promedio": 4.6,
+    "materias": ["Ciencias", "Matemáticas", "Arte", "Religión"],
+    "asistencia": "97%",
+    "direccion": "Barrio Las Flores, Cra 18 #22-15",
+    "proyecto": {
+      "titulo": "Reciclaje creativo",
+      "estado": "En desarrollo",
+      "descripcion": "Creación de esculturas y arte con materiales reciclables para promover el cuidado ambiental."
+    }
+  },
+  {
+    "nombre": "Santiago Torres",
+    "edad": 15,
+    "grado": "9°",
+    "curso": "A",
+    "promedio": 3.7,
+    "materias": ["Sociales", "Matemáticas", "Tecnología", "Educación Física"],
+    "asistencia": "89%",
+    "direccion": "Urbanización El Bosque, Casa 32",
+    "proyecto": {
+      "titulo": "Robot de limpieza escolar",
+      "estado": "En pruebas",
+      "descripcion": "Diseño de un robot con sensores para limpiar pasillos del colegio de manera autónoma."
+    }
+  },
+  {
+    "nombre": "Valeria Ortiz",
+    "edad": 19,
+    "grado": "11°",
+    "curso": "C",
+    "promedio": 4.9,
+    "materias": ["Filosofía", "Literatura", "Inglés", "Química"],
+    "asistencia": "100%",
+    "direccion": "Vereda San José, Km 2 vía principal",
+    "proyecto": {
+      "titulo": "Biblioteca virtual estudiantil",
+      "estado": "Finalizado",
+      "descripcion": "Plataforma digital con libros y materiales de apoyo creados por los mismos estudiantes."
+    }
+  },
+  {
+    "nombre": "Andrés Felipe Rojas",
+    "edad": 20,
+    "grado": "11°",
+    "curso": "D",
+    "promedio": 3.5,
+    "materias": ["Física", "Matemáticas", "Biología", "Informática"],
+    "asistencia": "88%",
+    "direccion": "Calle 12 #8-45, Sector Centro",
+    "proyecto": {
+      "titulo": "Estudio de aguas contaminadas",
+      "estado": "En desarrollo",
+      "descripcion": "Análisis de muestras de agua de quebradas cercanas para evaluar contaminación química."
+    }
+  },
+  {
+    "nombre": "Camila Rodríguez",
+    "edad": 14,
+    "grado": "8°",
+    "curso": "A",
+    "promedio": 4.4,
+    "materias": ["Español", "Historia", "Matemáticas", "Arte"],
+    "asistencia": "95%",
+    "direccion": "Barrio San Rafael, Manzana 3, Casa 10",
+    "proyecto": {
+      "titulo": "Periódico estudiantil digital",
+      "estado": "Finalizado",
+      "descripcion": "Creación de un blog escolar con noticias, eventos y artículos escritos por los alumnos."
+    }
+  },
+  {
+    "nombre": "Julián Esteban Cárdenas",
+    "edad": 18,
+    "grado": "10°",
+    "curso": "B",
+    "promedio": 4.1,
+    "materias": ["Ciencias", "Física", "Tecnología", "Inglés"],
+    "asistencia": "94%",
+    "direccion": "Vereda El Mirasol, casa 18",
+    "proyecto": {
+      "titulo": "Sistema de riego automático",
+      "estado": "En desarrollo",
+      "descripcion": "Creación de un sistema con sensores de humedad para automatizar el riego en cultivos escolares."
+    }
+  },
+  {
+    "nombre": "Laura Sofía Mendoza",
+    "edad": 17,
+    "grado": "10°",
+    "curso": "C",
+    "promedio": 4.5,
+    "materias": ["Inglés", "Biología", "Geografía", "Arte"],
+    "asistencia": "98%",
+    "direccion": "Carrera 21 #14-06, Altos del Rosario",
+    "proyecto": {
+      "titulo": "Arte y cultura local",
+      "estado": "Finalizado",
+      "descripcion": "Exposición artística que resalta las tradiciones culturales del municipio."
+    }
+  }
+]
