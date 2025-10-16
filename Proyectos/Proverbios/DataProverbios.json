@@ -1,0 +1,152 @@
+[
+  {
+    "Genero": "Sabiduria",
+    "versiculos": [
+      {
+        "texto": "El primer paso hacia la sabiduría es reconocer la propia ignorancia. Quien cree saberlo todo, se cierra la puerta al aprendizaje.",
+        "cita": "Principio Filosófico",
+        "reflexion": "La verdadera sabiduría no es la acumulación de datos, sino la humildad para admitir que siempre hay más por aprender. La curiosidad es el motor del conocimiento."
+      },
+      {
+        "texto": "La verdadera inteligencia no se demuestra en lo que sabes, sino en lo que haces. Elegir el camino correcto, aun cuando es difícil, es la más alta forma de sabiduría.",
+        "cita": "Sabiduría Práctica",
+        "reflexion": "El conocimiento sin acción es inútil. La sabiduría se forja en la coherencia entre nuestros valores y nuestras decisiones diarias, transformando la teoría en realidad."
+      },
+      {
+        "texto": "Una mente sabia no es la que escucha, sino la que comprende y actúa. Construye tu vida sobre principios sólidos y ninguna tormenta podrá derribarte.",
+        "cita": "Metáfora del Constructor",
+        "reflexion": "Escuchar consejos es fácil, pero internalizarlos y vivir de acuerdo a ellos requiere disciplina. Una vida fundamentada en valores firmes ofrece estabilidad ante cualquier crisis."
+      },
+      {
+        "texto": "Los mayores tesoros del conocimiento y el entendimiento no se encuentran en la superficie, sino en la profundidad de la introspección y el propósito.",
+        "cita": "Búsqueda Interior",
+        "reflexion": "Puedes aprender mucho del mundo exterior, pero la sabiduría más transformadora proviene de entenderte a ti mismo, tus motivaciones y tu lugar en el universo."
+      },
+      {
+        "texto": "El respeto por los principios fundamentales de la vida es el inicio de la sabiduría; el buen juicio pertenece a quienes viven en armonía con ellos.",
+        "cita": "Ley de Causa y Efecto",
+        "reflexion": "La sabiduría comienza al entender que existen leyes naturales y morales que rigen la vida. Actuar en sintonía con ellas trae paz y claridad mental."
+      }
+    ]
+  },
+  {
+    "Genero": "Amor",
+    "versiculos": [
+      {
+        "texto": "El amor verdadero es paciente y bondadoso. No tiene envidia, no es jactancioso ni se enorgullece. Es un acto, no solo una emoción.",
+        "cita": "Esencia del Amor",
+        "reflexion": "El amor genuino se mide en la constancia de nuestras acciones, no en la intensidad de nuestros sentimientos. Se demuestra en la calma, el apoyo y la ausencia de ego."
+      },
+      {
+        "texto": "Puedes tener fe en el futuro y esperanza en tus metas, pero al final, la fuerza más transformadora y duradera siempre será el amor.",
+        "cita": "Pilar Humano",
+        "reflexion": "Mientras la fe y la esperanza nos impulsan hacia adelante, el amor es lo que nos conecta con los demás y da sentido al viaje. Es el fundamento de todo lo que perdura."
+      },
+      {
+        "texto": "El amor se reconoce en el sacrificio: en la capacidad de poner las necesidades de otro antes que las propias. Es el acto de entrega más puro.",
+        "cita": "Definición del Vínculo",
+        "reflexion": "El amor maduro trasciende el deseo de recibir y se centra en el gozo de dar. Se trata menos de lo que obtienes y más de lo que estás dispuesto a ofrecer."
+      },
+      {
+        "texto": "La forma en que tratas a los demás es un reflejo directo de la relación que tienes contigo mismo. Ama a tu prójimo como te amas a ti.",
+        "cita": "Principio del Espejo",
+        "reflexion": "La compasión, el respeto y el perdón hacia otros nacen de una sana autoaceptación. No puedes dar aquello que no cultivas primero en tu interior."
+      },
+      {
+        "texto": "El resentimiento genera conflicto y distancia; el amor, en cambio, tiene la capacidad de perdonar y sanar las heridas más profundas.",
+        "cita": "El Poder Sanador",
+        "reflexion": "El amor no ignora las faltas, pero elige no aferrarse a ellas. Ofrece un espacio para la comprensión y la reconciliación, disolviendo el veneno del rencor."
+      }
+    ]
+  },
+  {
+    "Genero": "Alegria",
+    "versiculos": [
+      {
+        "texto": "La alegría no es la ausencia de problemas, sino la decisión de enfocarse en lo bueno a pesar de ellos. Es una elección consciente.",
+        "cita": "Filosofía Interior",
+        "reflexion": "La felicidad depende de lo que sucede, pero la alegría nace de nuestra actitud. Cultivar una perspectiva de gratitud nos permite encontrar luz incluso en la oscuridad."
+      },
+      {
+        "texto": "Un corazón sereno se refleja en un rostro amable. La angustia interior, en cambio, consume el espíritu y apaga la mirada.",
+        "cita": "Reflejo del Alma",
+        "reflexion": "Nuestro estado interno inevitablemente se manifiesta en el exterior. La paz y la alegría genuinas embellecen porque emanan de un lugar de equilibrio."
+      },
+      {
+        "texto": "La plenitud de la alegría no se encuentra en las posesiones, sino en las experiencias y en la conexión profunda con la vida misma.",
+        "cita": "La Senda de la Vida",
+        "reflexion": "Perseguir la alegría en lo material es una carrera sin fin. La verdadera satisfacción se halla en la quietud, en el presente y en la gratitud por existir."
+      },
+      {
+        "texto": "Cada día es un nuevo comienzo, una oportunidad para encontrar motivos de celebración. No esperes a los grandes eventos para sentirte vivo.",
+        "cita": "El Regalo del Presente",
+        "reflexion": "La alegría se descubre en los pequeños detalles: el sol de la mañana, una conversación sincera, un momento de paz. La vida es una colección de ahoras."
+      },
+      {
+        "texto": "Incluso cuando los resultados no son los esperados y todo parece estéril, se puede encontrar una razón para mantener el ánimo y la esperanza.",
+        "cita": "Resiliencia Emocional",
+        "reflexion": "La alegría más fuerte no depende del éxito o la abundancia. Nace de una fortaleza interna que sabe que, después de cada invierno, siempre llega la primavera."
+      }
+    ]
+  },
+  {
+    "Genero": "Tristeza",
+    "versiculos": [
+      {
+        "texto": "La fortaleza no se encuentra evitando el dolor, sino atravesándolo. Es en nuestros momentos más vulnerables donde descubrimos nuestra verdadera resiliencia.",
+        "cita": "Paradoja de la Vida",
+        "reflexion": "Permitirse sentir tristeza es un acto de honestidad con uno mismo. El dolor nos ablanda, nos hace más empáticos y nos prepara para valorar la alegría cuando regresa."
+      },
+      {
+        "texto": "Bienaventurados los que se permiten llorar, porque a través de sus lágrimas encontrarán el camino hacia la sanación y el consuelo.",
+        "cita": "El Valor de las Lágrimas",
+        "reflexion": "El llanto no es un signo de debilidad, sino una liberación necesaria. Es el lenguaje del alma cuando las palabras no son suficientes para expresar el dolor."
+      },
+      {
+        "texto": "No tienes que cargar con todo el peso del mundo sobre tus hombros. Aprende a soltar lo que no puedes controlar y confía en el proceso de la vida.",
+        "cita": "Liberación de la Carga",
+        "reflexion": "La ansiedad nace del intento de controlar lo incontrolable. La paz llega cuando aceptamos nuestros límites y dejamos que las cosas sigan su curso natural."
+      },
+      {
+        "texto": "Aquellos que plantan semillas con esfuerzo y lágrimas, con el tiempo cosecharán los frutos de la alegría y la superación.",
+        "cita": "El Ciclo del Crecimiento",
+        "reflexion": "El dolor a menudo es el abono del crecimiento personal. Cada desafío superado nos fortalece y transforma el sufrimiento pasado en la sabiduría del futuro."
+      },
+      {
+        "texto": "Aunque el cuerpo se canse y el corazón dude, siempre existe una fuerza interior, un núcleo inquebrantable que nos sostiene en los peores momentos.",
+        "cita": "La Roca Interior",
+        "reflexion": "Más allá de nuestras emociones y pensamientos fluctuantes, reside una esencia resiliente. Conectar con esa fortaleza interna es lo que nos permite seguir adelante."
+      }
+    ]
+  },
+  {
+    "Genero": "Humildad",
+    "versiculos": [
+      {
+        "texto": "El orgullo es el presagio de la caída. La arrogancia ciega, mientras que la humildad mantiene los pies en la tierra.",
+        "cita": "Sabiduría Universal",
+        "reflexion": "El ego nos convence de que somos invencibles, haciéndonos ignorar los riesgos y los consejos. La humildad, en cambio, nos permite ver con claridad y aprender."
+      },
+      {
+        "texto": "La vida favorece a quienes son humildes, pues están abiertos a recibir. El soberbio, creyendo que lo tiene todo, se cierra a cualquier nueva oportunidad.",
+        "cita": "Principio de Receptividad",
+        "reflexion": "La humildad es un estado de apertura. Atrae la ayuda, el conocimiento y las buenas relaciones porque no se siente amenazada por el valor de los demás."
+      },
+      {
+        "texto": "Quien busca elevarse por encima de los demás, eventualmente encontrará su lugar. Quien actúa con sencillez, será reconocido sin buscarlo.",
+        "cita": "Ley de la Modestia",
+        "reflexion": "El verdadero valor no necesita anunciarse. La humildad permite que tus acciones hablen por ti, generando un respeto más auténtico y duradero que el que exige la arrogancia."
+      },
+      {
+        "texto": "La sabiduría solo puede echar raíces en una mente humilde. Quien ya cree tener todas las respuestas, no tiene espacio para nuevas preguntas.",
+        "cita": "El Terreno del Aprendizaje",
+        "reflexion": "La humildad es el reconocimiento de que somos una obra en progreso. Esta aceptación es la llave que abre la puerta a un crecimiento personal sin límites."
+      },
+      {
+        "texto": "No actúes por rivalidad o vanidad. Por el contrario, con humildad, considera que los demás tienen algo valioso que enseñarte.",
+        "cita": "Filosofía del Respeto",
+        "reflexion": "La humildad no es pensar menos de ti, es pensar menos *en* ti. Te permite ver el valor en los demás y aprender de cada persona que encuentras en tu camino."
+      }
+    ]
+  }
+]
