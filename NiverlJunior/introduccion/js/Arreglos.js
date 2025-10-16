@@ -40,3 +40,22 @@ console.log(espacioPc);
 
 let pc2 = ["junkaPc","intel core i3","8 RAM","500GB"];
 console.log("Especificaciones de la pc " + pc2);
+
+//lo que podemos agregar a un arreglo
+
+const array = [
+    true,
+    123,
+    "fernando",
+    function(){},
+    ()=>{},
+    {a : 1},
+    ["x","megaman","zero","jose",[
+        "juan camilo",
+        "hola"
+    ]]
+];
+
+//ingresamos al indice 6 del arreglo y luego al sundice del arreglo 4 al 1
+console.log(array[6][4][1]);
+
