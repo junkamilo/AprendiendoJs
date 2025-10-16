@@ -1,0 +1,153 @@
+/* --- Variables y Estilos Generales --- */
+:root {
+    /* Paleta de colores Neón */
+    --background-color: #0d0d1a;
+    --primary-glow: #6f00ff; /* Púrpura neón */
+    --secondary-glow: #00e5ff; /* Cian neón */
+    --text-color: #f0f0f0;
+    --alarm-bg-color: #ff004c; /* Rojo-neón para la alarma */
+    --alarm-glow-color: #ffffff;
+
+    /* Tipografía */
+    --font-family: 'Orbitron', 'Helvetica Neue', sans-serif;
+}
+
+/* Importamos una fuente con estilo digital (Opcional, pero recomendado) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    background-image: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    font-family: var(--font-family);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    transition: background-color 0.5s ease-in-out;
+    overflow: hidden; /* Evita barras de desplazamiento por las animaciones */
+}
+
+/* --- 🕒 MODO RELOJ NORMAL --- */
+.content-reloj {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: rgba(22, 22, 38, 0.5); /* Fondo oscuro semitransparente */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px); /* Efecto "cristal esmerilado" */
+    transition: transform 0.3s ease;
+}
+
+.reloj {
+    position: relative; /* Necesario para los dos puntos (:) */
+}
+
+/* Añadimos los dos puntos (:) entre los números sin tocar el HTML */
+.reloj:not(:last-child)::after {
+    content: ':';
+    position: absolute;
+    right: -1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(4rem, 15vw, 10rem); /* Tamaño de fuente fluido */
+    color: var(--secondary-glow);
+    text-shadow: 
+        0 0 5px var(--secondary-glow),
+        0 0 15px var(--secondary-glow),
+        0 0 30px var(--secondary-glow);
+    animation: blink-colon 2s infinite; /* Sutil parpadeo para los dos puntos */
+}
+
+.time {
+    font-size: clamp(5rem, 20vw, 15rem); /* Tamaño de fuente fluido */
+    font-weight: 700;
+    color: var(--text-color);
+    text-shadow:
+        0 0 7px var(--primary-glow),
+        0 0 21px var(--primary-glow),
+        0 0 42px var(--primary-glow),
+        0 0 82px var(--primary-glow);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* --- 🔔 MODO ALARMA ACTIVADA --- */
+body.alarm-active {
+    /* Cuando la alarma suena, el body recibe esta clase desde JS */
+    animation: pulse-bg 1s infinite alternate;
+}
+
+.alarm-active .content-reloj {
+    animation: shake 0.2s infinite;
+}
+
+.alarm-active .time,
+.alarm-active .reloj:not(:last-child)::after {
+    color: #fff;
+    animation: flash-text 0.5s infinite alternate;
+}
+
+
+/* --- 💡 ANIMACIONES Y KEYFRAMES --- */
+@keyframes pulse-bg {
+    from { background-color: #330000; }
+    to { background-color: var(--alarm-bg-color); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px) rotate(-1deg); }
+    75% { transform: translateX(8px) rotate(1deg); }
+}
+
+@keyframes flash-text {
+    from {
+        text-shadow: 
+            0 0 10px var(--alarm-glow-color),
+            0 0 30px var(--alarm-glow-color),
+            0 0 60px var(--alarm-bg-color);
+    }
+    to {
+        text-shadow: 
+            0 0 20px var(--alarm-glow-color),
+            0 0 50px var(--alarm-bg-color),
+            0 0 100px var(--alarm-bg-color);
+    }
+}
+
+@keyframes blink-colon {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+
+/* --- 📱 DISEÑO RESPONSIVO --- */
+@media (max-width: 800px) {
+    .content-reloj {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .reloj:not(:last-child)::after {
+       /* Ocultamos los dos puntos en vista de columna para que no se vea raro */
+       content: ''; 
+    }
+    
+    .time {
+        /* El clamp() ya hace gran parte del trabajo, pero podemos ajustar si es necesario */
+        line-height: 1; /* Ajustamos el interlineado en vista de columna */
+    }
+}
