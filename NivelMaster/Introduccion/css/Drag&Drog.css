@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.circulo{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 100%;
+}
+.cuadrado{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+.soltar{
+    width: 90%;
+    height: 500px;
+    border: 3px dashed black;
+}
