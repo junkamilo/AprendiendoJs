@@ -18,12 +18,17 @@ const versiculos = async (generoSeleccionado) => {
         const pTexto = document.createElement("p");
         const pCita = document.createElement("p");
         const pReflexion = document.createElement("p");
+        const contentversi = document.createElement("div");
+
+        //agregamos estilos
+        contentversi.classList.add("content-versi");
 
         pTexto.textContent = v.texto;
         pCita.textContent = `📖 ${v.cita}`;
         pReflexion.textContent = `💡 ${v.reflexion}`;
 
-        contentVersiculos.append(pTexto, pCita, pReflexion);
+        contentversi.append(pTexto,pCita,pReflexion);
+        contentVersiculos.append(contentversi);
       });
     } else {
       const p = document.createElement("p");

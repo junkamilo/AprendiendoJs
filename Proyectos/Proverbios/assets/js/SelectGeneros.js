@@ -1,6 +1,10 @@
 const selectGenero = async () => {
   // Creamos el elemento
   const select = document.createElement("select");
+  const contentSelect = document.createElement("div");
+
+  //agregamos estilos
+  contentSelect.classList.add("content-select");
 
   try {
     // Cargamos el JSON
@@ -18,7 +22,9 @@ const selectGenero = async () => {
     console.error("Error al cargar los datos:", error);
   }
 
-  return select;
+  contentSelect.append(select);
+
+  return contentSelect;
 };
 
 export default selectGenero;

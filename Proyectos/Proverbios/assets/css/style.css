@@ -1,9 +1,97 @@
+@import "tailwindcss";
+
+:root{
+    --color-sabidura : #016B61;
+    --color-amor : #BF092F;
+    --color-alegria : #FFC400;
+    --color-trizteza : #777C6D;
+    --color-humildad : #d983c9;
+}
+
 *{
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
-body{
-    width: 100%;
-    min-height: 100vh;
+@layer components {
+  .content-body {
+    @apply border border-black w-full min-h-dvh p-2 flex justify-center items-center flex-col gap-[1rem];
+  }
+
+  .titulo-principal {
+    @apply border border-black w-full h-full text-center font-bold font-serif rounded-2xl text-8xl flex justify-center items-center;
+  }
+
+  .content-titulo {
+    @apply border border-black h-[10rem] p-2 flex justify-center items-center w-full;
+  }
+  .content-select{
+    @apply border-1 w-[10rem] h-[5rem] flex justify-center items-center;
+  }
+  .contenedor-versiculos{
+    @apply border-1
+  }
+  .content-versi{
+    @apply border-1
+  }
 }
+
+@layer components {
+  .tema-sabiduria {
+    background-color: var(--color-sabidura);
+  }
+  .tema-amor {
+    background-color: var(--color-amor);
+  }
+  .tema-alegria {
+    background-color: var(--color-alegria);
+  }
+  .tema-triztesa {
+    background-color: var(--color-trizteza);
+  }
+  .tema-humildad {
+    background-color: var(--color-humildad);
+  }
+
+}
+
+/*slider*/
+@layer components {
+  .content-carrusel {
+    @apply relative w-full;
+  }
+
+  .carrusel-wrapper {
+    @apply relative h-56 overflow-hidden rounded-lg md:h-96;
+  }
+
+  .carrusel-item {
+    @apply hidden duration-700 ease-in-out;
+  }
+
+  .carrusel-img {
+    @apply absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2;
+  }
+
+  .carrusel-btn {
+    @apply absolute top-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none;
+  }
+
+  .carrusel-btn-prev {
+    @apply start-0;
+  }
+
+  .carrusel-btn-next {
+    @apply end-0;
+  }
+
+  .carrusel-span {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 
+    dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 
+    group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 
+    group-focus:outline-none;
+  }
+
+  .carrusel-svg {
+    @apply w-4 h-4 text-white dark:text-gray-800;
+  }
+}
+
