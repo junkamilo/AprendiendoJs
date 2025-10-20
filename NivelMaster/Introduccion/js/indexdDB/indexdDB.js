@@ -10,7 +10,7 @@ BD.addEventListener("upgradeneeded",()=>{
         autoIncrement: true
     });
 });
-//validamos que la BD esta todo bien o no gay error
+//validamos que la BD esta todo bien o no hay error
 BD.addEventListener("success",()=>{
     console.log("Todo solio correctamente");
 })
