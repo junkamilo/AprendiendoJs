@@ -1,0 +1,72 @@
+[
+  {
+    "img":"/img/badbunny.jpg",
+    "nombre": "Bad Bunny",
+    "descripcion": "Figura dominante del reggaetón moderno y del trap latino. Su estilo combina rebeldía, autenticidad y una visión artística que transformó la música urbana en un fenómeno global. Se mueve entre lo experimental y lo popular sin perder su sello personal.",
+    "musicaEscuchada": ["DÁKITI", "LA CANCIÓN", "Me Porto Bonito", "Tití Me Preguntó", "I Like It", "Ojitos Lindos", "Callaíta", "No Me Conoce", "Yonaguni", "Efecto"],
+    "albumEscuchado": ["Un Verano Sin Ti", "YHLQMDLG", "EL ÚLTIMO TOUR DEL MUNDO", "DeBÍ TiRAR MáS FOToS", "X 100PRE", "Nadie Sabe Lo Que Va a Pasar Mañana", "OASIS", "LAS QUE NO IBAN A SALIR"]
+  },
+  {
+    "img":"/img/mora.jpg",
+    "nombre": "Mora",
+    "descripcion": "Cantante y compositor puertorriqueño que fusiona reggaetón, trap y sonidos melódicos. Destaca por su lírica introspectiva y una producción moderna que ha definido una nueva ola en la música urbana latina.",
+    "musicaEscuchada": ["Memorias", "Volando Remix", "Tuyo", "Media Luna", "Calentón", "Lagos", "Escalofríos", "Domingo", "APA", "Modelito"],
+    "albumEscuchado": ["Microdosis", "PARAÍSO", "Primer Día de Clases", "Estrella"]
+  },
+  {
+    "img":"/img/feid.jpg",
+    "nombre": "Feid",
+    "descripcion": "Artista colombiano con una mezcla de flow urbano, melodías suaves y una identidad muy marcada. Su estilo fresco y relajado lo ha convertido en uno de los exponentes más sólidos del reggaetón moderno.",
+    "musicaEscuchada": ["Feliz Cumpleaños Ferxxo", "Normal", "Hey Mor", "Chorrito Pa Las Animas", "PORFA Remix", "Ferxxo 100", "Bubalu", "X19X", "Le Pido a Dios", "Luna"],
+    "albumEscuchado": ["Feliz Cumpleaños Ferxxo Te Pirateamos El Álbum", "MOR No Le Temas a la Oscuridad", "Bahía Ducati", "Inter Shibuya – La Mafia"]
+  },
+  {
+    "img":"/img/carrion.jpg",
+    "nombre": "Eladio Carrión",
+    "descripcion": "Rapero y cantante puertorriqueño que elevó el trap latino a otro nivel. Se caracteriza por su técnica, autenticidad y letras que reflejan ambición, superación y estilo callejero con inteligencia.",
+    "musicaEscuchada": ["Si Salimos", "Mbappe", "Coco Chanel", "3 AM", "Kemba Walker", "Sauce Boy Freestyle", "TQMQA", "Quizás, Tal Vez", "El Hokage", "Al Capone"],
+    "albumEscuchado": ["SEN2 KBRN VOL.1", "SEN2 KBRN VOL.2", "Monarca", "3MEN2 KBRN", "The Sauce Tape"]
+  },
+  {
+    "img":"/img/Madiel_Lara.jpg",
+    "nombre": "Madiel Lara",
+    "descripcion": "Cantante dominicano de música urbana cristiana. Combina trap, drill y reggaetón con mensajes de fe, esperanza y reflexión sin perder el ritmo ni la fuerza de su estilo.",
+    "musicaEscuchada": ["911", "Cristo Es El Centro", "Flow Celestial", "No Hay Nadie", "Cristo Es", "Bajo Tu Gracia", "Vibras del Cielo", "Conexión", "Fiel", "Dilema"],
+    "albumEscuchado": ["Trapstorno", "La Presión", "La Respuesta", "Eterno", "Gracias a Dios"]
+  },
+  {
+    "img":"/img/cano.jpg",
+    "nombre": "Natanael Cano",
+    "descripcion": "Figura clave del movimiento de corridos tumbados. Su estilo mezcla regional mexicano con influencias urbanas, rompiendo esquemas y llevando la música del norte a nuevas audiencias globales.",
+    "musicaEscuchada": ["Soy El Diablo", "Amor Tumbado", "Pacas de Billetes", "Porte Exuberante", "Nataaoki", "Mi Nuevo Yo", "Girasol", "Corridos Tumbados", "Más Altas Que Bajadas", "Self Made"],
+    "albumEscuchado": ["Corridos Tumbados", "A Mis 20", "NataKong", "Nata Montana", "NataSonic"]
+  },
+  {
+    "img":"/img/PostMalone.jpg",
+    "nombre": "Post Malone",
+    "descripcion": "Artista estadounidense que fusiona hip-hop, pop, rock y R&B. Su voz melancólica y sus letras sinceras lo han convertido en uno de los artistas más versátiles y exitosos de su generación.",
+    "musicaEscuchada": ["Circles", "Rockstar", "Sunflower", "Better Now", "Congratulations", "Wow.", "Goodbyes", "White Iverson", "Chemical", "Mourning"],
+    "albumEscuchado": ["Stoney", "Beerbongs & Bentleys", "Hollywood’s Bleeding", "Twelve Carat Toothache", "Austin"]
+  },
+  {
+    "img":"/img/TwentyOnePilots.jpg",
+    "nombre": "Twenty One Pilots",
+    "descripcion": "Dúo estadounidense que mezcla rock alternativo, rap y pop con letras profundas sobre identidad, ansiedad y esperanza. Su estilo único los ha convertido en una banda de culto con millones de seguidores.",
+    "musicaEscuchada": ["Stressed Out", "Heathens", "Ride", "Car Radio", "Chlorine", "Tear In My Heart", "Jumpsuit", "The Hype", "Holding On To You", "Shy Away"],
+    "albumEscuchado": ["Blurryface", "Trench", "Scaled And Icy", "Vessel", "Clancy"]
+  },
+  {
+    "img":"/img/ImagineDragons.jpg",
+    "nombre": "Imagine Dragons",
+    "descripcion": "Banda de rock alternativo conocida por su energía, estribillos potentes y mensajes de superación. Su sonido combina percusión épica y melodías pop accesibles que los mantienen en la cima mundial.",
+    "musicaEscuchada": ["Believer", "Radioactive", "Demons", "Whatever It Takes", "Thunder", "Bones", "Enemy", "Bad Liar", "It’s Time", "On Top of the World"],
+    "albumEscuchado": ["Night Visions", "Smoke + Mirrors", "Evolve", "Origins", "Mercury – Acts 1 & 2"]
+  },
+  {
+    "img":"/img/Avicii.jpg",
+    "nombre": "Avicii",
+    "descripcion": "Productor y DJ sueco que revolucionó la música electrónica moderna. Su legado mezcla energía, emoción y melodías inolvidables que marcaron a toda una generación.",
+    "musicaEscuchada": ["Wake Me Up", "Levels", "Hey Brother", "The Nights", "Waiting For Love", "Addicted To You", "Without You", "You Make Me", "Broken Arrows", "Fade Into Darkness"],
+    "albumEscuchado": ["True", "Stories", "Tim", "Avīci (01)"]
+  }
+]

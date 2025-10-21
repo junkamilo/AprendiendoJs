@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem); /* 20px */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* * 2. CAPA BASE (@layer base)
+ * Definimos los estilos globales del body.
+ */
+@layer base {
+  html {
+    @apply scroll-smooth; /* Scroll suave */
+  }
+  body {
+    /* * Fondo oscuro principal con un gradiente radial sutil.
+     * Esto da una sensación de "viñeta" o "luz" central, 
+     * muy común en interfaces inmersivas.
+     */
+    background-image: radial-gradient(circle at top, theme(colors.neutral.900), theme(colors.neutral.950) 75%);
+    @apply min-h-screen w-full;
+  }
+}
+
+/* * 3. CAPA DE COMPONENTES (@layer components)
+ * Aquí es donde rediseñamos todas tus clases.
+ */
+@layer components {
+
+  /** TÍTULO PRINCIPAL **/
+  .titulo {
+    @apply text-4xl sm:text-5xl md:text-6xl font-extrabold my-10 md:my-16 text-center px-4;
+    
+    /* * Efecto de texto con gradiente vibrante.
+     * Este será nuestro color de acento principal.
+     */
+    @apply bg-gradient-to-r from-lime-400 via-green-400 to-cyan-400 bg-clip-text text-transparent;
+    
+    /* * Sombra de texto sutil que usa el color del gradiente 
+     * para crear un efecto de "resplandor" (glow).
+     */
+    @apply [text-shadow:_0_2px_25px_theme(colors.green.900)];
+  }
+
+  /** GRID DE LA APP **/
+  .app-grid {
+    @apply grid w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 pb-16;
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 md:gap-8;
+  }
+
+  /** TARJETA (CARD) **/
+  .card {
+    @apply flex flex-col p-5 md:p-6;
+    @apply items-center; /* Centra los hijos (como la imagen) */
+    @apply bg-neutral-900/60 backdrop-blur-md;
+    
+    /* Bordes y sombra sutiles */
+    @apply border border-neutral-800 rounded-2xl shadow-xl;
+    @apply transition-all duration-300 ease-out;
+    @apply opacity-0 animate-[fade-in-up_0.6s_ease-out_forwards];
+    @apply hover:bg-neutral-800/80 hover:scale-[1.03] hover:shadow-lime-500/20 hover:border-neutral-700;
+  }
+
+  /* * --- ESTILOS Y REORDENAMIENTO DE HIJOS DE .card ---
+   * Usamos selectores de CSS para no tocar card.js
+   */
+  
+  .card h3 { /* Título del artista */
+    @apply order-2; /* 2º en aparecer */
+    @apply text-xl md:text-2xl font-bold text-neutral-50 mb-2 text-center;
+  }
+  
+  .card .button { /* Botón */
+    @apply order-4; /* 4º en aparecer (al final) */
+    @apply mt-6; /* Margen superior para separarlo del texto */
+  }
+  
+  .card .contentImg { /* Contenedor de la imagen */
+    @apply order-1; /* 1º en aparecer (arriba) */
+    @apply mb-5; /* Margen inferior */
+  }
+  
+  /* El 'div' que contiene el párrafo (el último div hijo de .card) */
+  .card > div:last-of-type { 
+    @apply order-3; /* 3º en aparecer */
+    @apply flex-grow; /* Empuja el botón (order-4) hacia abajo */
+  }
+  
+  .card p { /* Párrafo de descripción */
+    @apply text-sm text-neutral-400 text-center;
+    /* Altura mínima para alinear botones en tarjetas con texto corto */
+    @apply min-h-[4.5rem]; /* Aprox. 3 líneas de texto */
+  }
+  
+  /* --- FIN DEL REORDENAMIENTO --- */
+
+
+  /** CONTENEDOR DE IMAGEN **/
+  .contentImg {
+    @apply w-40 h-40 md:w-48 md:h-48; /* Más grande */
+    @apply rounded-full overflow-hidden;
+    @apply border-4 border-neutral-800 shadow-lg; /* Borde sutil */
+    
+    /* Transición para el hover */
+    @apply transition-all duration-300 ease-out;
+    
+    /* * Efecto Hover (reacciona al 'group-hover' de .card):
+     * El borde cambia al color de acento y la imagen escala un poco.
+     */
+    @apply group-hover:border-lime-500/50 group-hover:scale-105;
+  }
+
+  /** IMAGEN **/
+  .img {
+    /* ¡CORRECCIÓN CRÍTICA! */
+    @apply w-full h-full object-cover; /* 'object-cover' evita que la imagen se estire */
+  }
+
+  /** BOTÓN **/
+  .button {
+    /* Reinicio de estilos del botón original */
+    @apply font-bold uppercase tracking-wider text-sm text-center;
+    
+    /* Nuevo estilo "Pill" (píldora) con colores de acento */
+    @apply bg-lime-500 text-neutral-900 px-8 py-3 rounded-full;
+    
+    /* Transiciones y sombras */
+    @apply transition-all duration-300 ease-out shadow-md;
+    
+    /* Estado Hover: Se aclara, escala y añade sombra de acento */
+    @apply hover:bg-lime-400 hover:scale-105 hover:shadow-lime-500/40;
+    
+    /* Estado Focus (accesibilidad) */
+    @apply focus:outline-none focus:ring-4 focus:ring-lime-500/50;
+  }
+}
