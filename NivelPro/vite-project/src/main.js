@@ -1,21 +1,18 @@
-//modo estrticto js
+//modo estricto js
 "use strict";
-//importaciones
-import '../src/style.css';
-import tituloPrincipal from './titulo.js'
-import dataArtista from './data.js'
-//seleccionamos el app principal
+
+//Importamos estilos globales
+import "../src/style.css";
+
+//Importamos el router
+import { router } from "./router/router.js";
+
+//Seleccionamos el contenedor principal
 const app = document.getElementById("app");
-const contentGrid = document.createElement("div");
-//agregamos los estilos
-contentGrid.classList.add("app-grid");
-//titulo principal
-const titulo = tituloPrincipal();
 
-//pegamos los elementos al elemento principal
-app.append(titulo,contentGrid);
+//Cuando la página carga, ejecutamos el router
+window.addEventListener("DOMContentLoaded", () => router(app));
 
-// Ahora cargamos los datos y agregamos las cards dinámicamente
-dataArtista().then((cards) => {    
-  cards.forEach((c) => contentGrid.append(c));
-});
+//Cada vez que cambia el hash (#/Artistas, #/Home, etc.), volvemos a ejecutar el router
+window.addEventListener("hashchange", () => router(app));
+

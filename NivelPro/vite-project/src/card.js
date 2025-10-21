@@ -24,6 +24,11 @@ const card = ({ nombre, img, descripcion }) => {
   // Estructurar elementos
   logoPerfil.append(imagen);
   contentParrafo.append(parrafo);
+
+  button.addEventListener("click",()=>{
+    location.hash = `/Artistas/${encodeURIComponent(nombre)}`
+  })
+
   card.append(nameArtista,button, logoPerfil, contentParrafo);
 
   return card;
