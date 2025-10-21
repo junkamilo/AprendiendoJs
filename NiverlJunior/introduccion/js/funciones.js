@@ -1,13 +1,15 @@
 /**
  * FUNCIONES
  */
+
+let DatoUsuario;
 //creamos la funcion
 function saludar() {
-    let DatoUsuario = prompt("Hola como estas?");
+    //let DatoUsuario = prompt("Hola como estas?");
     if (DatoUsuario == "bien") {
-        alert("Me alegro");
+        //alert("Me alegro");
     }else if(DatoUsuario == "mal"){
-        alert("Tranquilo tiene tiene solucion");
+        //alert("Tranquilo tiene tiene solucion");
     }
 }
 //llamamos la  funcion
@@ -15,11 +17,11 @@ saludar();
 
 //funciones guardado en una variable
 const saludarTwo = function() {
-    let DatoUsuario = prompt("Hola como estas?");
+    //let DatoUsuario = prompt("Hola como estas?");
     if (DatoUsuario == "bien") {
-        alert("Me alegro");
+        //alert("Me alegro");
     }else if(DatoUsuario == "mal"){
-        alert("Tranquilo tiene tiene solucion");
+        //alert("Tranquilo tiene tiene solucion");
     }
 }
 
@@ -58,4 +60,17 @@ console.log("Suma total " + sumaTotal);
 //funcione flecha con un solo parametro y una solo linea de codigo resumida
 const funcionFlecha = nombre => console.log(`Hola ${nombre} como estas?`);
 
-funcionFlecha("juan camilo")
+funcionFlecha("juan camilo");
+
+function imprimirArgumentos (){
+    //con argukmentos imprimimos todos los parametros
+    console.log( arguments);
+}
+imprimirArgumentos(10,true,false,"fernando","Hola");
+
+const imprimirArgumentos2 = (edad,...args)=>{
+    return args;
+}
+
+const [casado,vivo,nombre,saludo] = imprimirArgumentos2(10,true,false,"fernando","Hola");
+console.log({casado,vivo,nombre,saludo});
