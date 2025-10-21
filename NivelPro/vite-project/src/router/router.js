@@ -18,10 +18,25 @@ export const router = async (app) => {
   const hash = location.hash.slice(2) || "Home";
   const [rutas, params] = matchRoute(hash);
 
-  await loadView(app, rutas.template);
-  // Ejecutar el controldor
-  rutas.controlador(params);
+  if (!rutas) {
+    app.innerHTML = `<h2>404 - Página no encontrada</h2>`;
+    return;
+  }
+
+  // Si tiene template (HTML), lo cargamos
+  if (rutas.template) {
+    await loadView(app, rutas.template);
+  } else {
+    // Si no tiene template, creamos un contenedor base
+    app.innerHTML = `<main id="main-content"></main>`;
+  }
+
+  // Esperamos a que el DOM esté listo antes de ejecutar el controlador
+  requestAnimationFrame(() => {
+    rutas.controlador(params);
+  });
 };
+
 
 const matchRoute = (hash) => {
   const arreglo = hash.replace(/^#/, "").split("/");

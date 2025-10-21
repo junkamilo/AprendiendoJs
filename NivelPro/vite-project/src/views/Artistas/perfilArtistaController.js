@@ -1,5 +1,11 @@
 export const perfilArtistaController = async (params) => {
   const main = document.getElementById("main-content");
+  console.log("main encontrado:", main);
+
+  if (!main) {
+    console.error("⚠️ No se encontró el #main-content en el DOM");
+    return;
+  }
   main.innerHTML = ""; // limpiar antes de renderizar
   main.classList.add("main-content");
 
