@@ -1,0 +1,604 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Paleta de Colores (Estética "Data-Grid" Oscura) */
+  --color-bg-primary: #10121a; /* Fondo principal (azul muy oscuro) */
+  --color-bg-table: #1a1d2b; /* Fondo de la tabla (azul-grisáceo) */
+  --color-accent-1: #40e0d0; /* Acento 1 (Turquesa/Cyan brillante) */
+  --color-accent-2: #e040fb; /* Acento 2 (Magenta/Neón) */
+  --color-text-primary: #f0f4f8; /* Texto principal (blanco suave) */
+  --color-text-secondary: #a0aec0; /* Texto secundario (gris-azulado) */
+  --color-border: rgba(160, 174, 192, 0.2); /* Borde sutil y translúcido */
+
+  /* RGB para efectos de 'glow' con opacidad */
+  --color-accent-1-rgb: 64, 224, 208;
+  --color-accent-2-rgb: 224, 64, 251;
+
+  /* Configuración de tema */
+  color-scheme: dark;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+
+  /* Mejoras de renderizado de texto */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  width: 100%;
+  background-image: radial-gradient(
+    ellipse at center,
+    #202330 0%,
+    var(--color-bg-primary) 100%
+  );
+}
+
+#app {
+  width: 100%;
+  min-height: 100dvh;
+  display: grid;
+  /* Centra el form si es el único elemento */
+  place-items: center;
+  /* Permite que la tabla y el form coexistan */
+  /* align-items: start; */
+  gap: 2rem;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+/* --- 4. Animación de Carga (Keyframes) --- */
+@keyframes fadeInData {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes scanLine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  background-color: var(--color-bg-table);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 15px rgba(var(--color-accent-1-rgb), 0.1);
+  animation: fadeInData 0.8s ease-out forwards;
+}
+
+thead {
+  position: relative;
+}
+
+thead::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  /* Gradiente que se moverá */
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-1),
+    var(--color-accent-2),
+    var(--color-accent-1)
+  );
+  background-size: 200% 100%;
+  /* Animación 'scanLine' */
+  animation: scanLine 4s linear infinite;
+  box-shadow: 0 0 10px rgba(var(--color-accent-1-rgb), 0.5),
+    0 0 10px rgba(var(--color-accent-2-rgb), 0.5);
+}
+
+thead th {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Fondo sutil para diferenciar el header */
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  padding: 1.25rem 1.5rem;
+  /* Damos prioridad al pseudo-elemento ::after de thead */
+  border-bottom: none;
+}
+
+/* --- 7. Cuerpo de la Tabla (tbody) --- */
+tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:last-child {
+  border-bottom: none; /* Limpia el final de la tabla */
+}
+
+tbody td {
+  padding: 1rem 1.5rem;
+  color: var(--color-text-secondary); /* Texto de datos más suave */
+  font-size: 0.95rem;
+  /* Transición suave para el efecto hover */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Estilo especial para la primera celda (Nombre) */
+tbody td:first-child {
+  color: var(--color-text-primary); /* Destacamos el nombre */
+  font-weight: 600;
+}
+
+/* --- 8. Efectos Hover y Microinteracciones --- */
+
+/* Al pasar el mouse sobre una fila (tr) */
+tbody tr:hover {
+  /* Fondo de "highlight" usando el acento con transparencia */
+  background-color: rgba(var(--color-accent-1-rgb), 0.08);
+}
+
+/* Las celdas (td) dentro de la fila "hovered" */
+tbody tr:hover td {
+  color: var(--color-accent-1); /* El texto se tiñe del color de acento */
+}
+
+/* La primera celda (Nombre) también se tiñe */
+tbody tr:hover td:first-child {
+  color: var(--color-accent-1);
+  transform: scale(1.02); /* Pequeño zoom al nombre */
+}
+
+/* --- 9. Ajustes Responsivos (Móvil) --- */
+@media (max-width: 768px) {
+  #app {
+    /* Menos padding en móviles, pero mantenemos el scroll-x */
+    padding: 1rem;
+  }
+
+  table {
+    /* Forzamos el ancho mínimo de forma más pronunciada */
+    min-width: 800px;
+  }
+
+  thead th,
+  tbody td {
+    padding: 1rem; /* Reducimos el padding en móvil */
+    font-size: 0.9rem;
+  }
+}
+
+/*formulario*/
+form {
+  display: grid;
+  gap: 1.25rem; /* Espacio entre cada input y el botón */
+  width: 100%;
+  max-width: 500px; /* Ancho máximo del formulario */
+
+  /* Estética del contenedor */
+  background-color: var(--color-bg-table);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 10px rgba(var(--color-accent-1-rgb), 0.1);
+
+  /* Animación de entrada */
+  animation: fadeInData 0.7s ease-out forwards;
+}
+
+/* --- 5. Estilo de Inputs --- */
+form input {
+  /* Reset de apariencia */
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+
+  /* Box Model */
+  width: 100%;
+  padding: 0.9rem 1rem;
+
+  /* Tipografía y Colores */
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  background-color: var(--color-input-bg); /* Fondo oscuro */
+  border: 2px solid var(--color-border); /* Borde sutil */
+  border-radius: var(--radius-md);
+
+  /* Transición para el foco */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo del Placeholder */
+form input::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
+/* --- 6. Interacciones de Inputs (¡Efecto único!) --- */
+form input:focus {
+  border-color: var(--color-accent-1); /* Borde de acento */
+  /* Efecto "Glow" */
+  box-shadow: 0 0 15px rgba(var(--color-accent-1-rgb), 0.5);
+}
+
+/* --- 7. Estilo del Botón de Envío --- */
+form button {
+  /* Reset de apariencia */
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+
+  /* Box Model */
+  padding: 0.9rem 1.5rem;
+  margin-top: 0.5rem; /* Espacio extra antes del botón */
+
+  /* Tipografía y Colores */
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-bg-primary); /* Texto oscuro para alto contraste */
+  background-color: var(--color-accent-1); /* Color de acento */
+  border-radius: var(--radius-md);
+
+  /* Interacción */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* --- 8. Interacciones del Botón --- */
+form button:hover,
+form button:focus {
+  background-color: var(--color-accent-1);
+  /* Efecto "Glow" y elevación */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(var(--color-accent-1-rgb), 0.4);
+}
+
+form button:focus {
+  /* Anillo de foco visible para accesibilidad */
+  box-shadow: 0 0 0 4px rgba(var(--color-bg-primary), 0.7),
+    0 8px 20px rgba(var(--color-accent-1-rgb), 0.4);
+}
+
+form button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(var(--color-accent-1-rgb), 0.3);
+}
+
+/* --- 9. Responsividad --- */
+@media (max-width: 768px) {
+  #app {
+    padding: 1rem;
+  }
+
+  form {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+/*formulario secundario*/
+/* --- 1. Animaciones (Keyframes) --- */
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animaciones de salida */
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modalZoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* --- 2. Estilos del Overlay (Fondo) --- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0; /* (top, left, right, bottom = 0) */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75); /* Más oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+
+  /* Animación de entrada */
+  animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+/* --- 3. Estilos del Formulario (Ventana) --- */
+
+.modal-form {
+  /* Usamos variables (con fallbacks por si acaso) */
+  background: var(--color-bg-table, #1a1d2b);
+  padding: 2rem;
+  border-radius: var(--radius-md, 8px);
+  width: 100%;
+  max-width: 500px; /* Ancho máximo */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Espacio entre elementos */
+
+  /* Sombra y 'glow' (usando el acento 2) */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 0 10px rgba(var(--color-accent-2-rgb, 224, 64, 251), 0.1);
+  border: 1px solid var(--color-border, rgba(160, 174, 192, 0.2));
+
+  /* Animación de entrada (con retraso) */
+  animation: modalZoomIn 0.3s 0.05s ease-out forwards;
+  opacity: 0; /* Inicia invisible para la animación */
+}
+
+/* --- 4. Animaciones de Salida --- */
+
+.modal-overlay--closing {
+  /* No escucha eventos de puntero mientras desaparece */
+  pointer-events: none;
+  animation: modalFadeOut 0.3s ease-in forwards;
+}
+
+.modal-overlay--closing .modal-form {
+  animation: modalZoomOut 0.3s ease-in forwards;
+}
+
+/* --- 5. Elementos Internos del Formulario --- */
+
+.modal-title {
+  margin: 0;
+  padding-bottom: 1rem;
+  color: var(--color-text-primary, #f0f4f8);
+  font-size: 1.5rem;
+  text-align: center;
+  /* Línea divisoria con gradiente */
+  border-bottom: 2px solid;
+  border-image: linear-gradient(
+      90deg,
+      var(--color-accent-1, #40e0d0),
+      var(--color-accent-2, #e040fb)
+    )
+    1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Espacio entre label e input */
+}
+
+.form-group label {
+  color: var(--color-text-secondary, #a0aec0);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.form-input {
+  /* (Estilos consistentes con el form principal) */
+  appearance: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text-primary, #f0f4f8);
+  background-color: var(--color-input-bg, #10121a);
+  border: 2px solid var(--color-border, rgba(160, 174, 192, 0.2));
+  border-radius: var(--radius-md, 8px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Foco con el acento 2 */
+.form-input:focus {
+  border-color: var(--color-accent-2, #e040fb);
+  box-shadow: 0 0 15px rgba(var(--color-accent-2-rgb, 224, 64, 251), 0.5);
+}
+
+/* --- 6. Botones del Modal --- */
+
+.form-actions {
+  display: flex;
+  /* En móviles, se apilan; en escritorio, se separan */
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border, rgba(160, 174, 192, 0.2));
+}
+
+/* Base del botón */
+.btn {
+  appearance: none;
+  border: none;
+  outline: none;
+  padding: 0.8rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Botón Primario (Guardar) */
+.btn-primary {
+  color: var(--color-bg-primary, #10121a);
+  background-color: var(--color-accent-1, #40e0d0);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #ffffff;
+  color: var(--color-accent-1, #40e0d0);
+  box-shadow: 0 0 15px rgba(var(--color-accent-1-rgb, 64, 224, 208), 0.5);
+  transform: translateY(-2px);
+}
+
+/* Botón Secundario (Cancelar) */
+.btn-secondary {
+  color: var(--color-text-secondary, #a0aec0);
+  background-color: transparent;
+  border: 2px solid var(--color-border, rgba(160, 174, 192, 0.2));
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-border, rgba(160, 174, 192, 0.2));
+  color: var(--color-text-primary, #f0f4f8);
+  transform: translateY(-2px);
+}
+
+/* --- 7. Responsividad (Tablet y más) --- */
+
+@media (min-width: 480px) {
+  .form-actions {
+    /* En pantallas más grandes, los botones van lado a lado */
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .btn {
+    flex-grow: 1; /* Hacemos que ambos botones ocupen el espacio */
+  }
+}
+
+
+/*Botones*/
+.table-actions {
+  display: flex;
+  gap: 0.75rem; /* Espacio entre botones */
+  align-items: center;
+  justify-content: flex-start; /* O 'center' si prefieres */
+}
+
+/* Base común para ambos botones de acción.
+  Estilo "Ghost" (fantasma) que se ilumina al pasar el mouse.
+*/
+.btn-action {
+  /* Reset */
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  /* Estilo */
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+
+  /* Transición suave */
+  transition: all 0.3s ease;
+}
+
+/* --- Botón Editar (Actualizar) --- */
+.btn-edit {
+  /* Usa el acento principal (turquesa) */
+  color: var(--color-accent-1, #40e0d0);
+  border: 1px solid var(--color-accent-1, #40e0d0);
+  background-color: rgba(var(--color-accent-1-rgb, 64, 224, 208), 0.1);
+}
+
+.btn-edit:hover,
+.btn-edit:focus {
+  /* Se invierte al pasar el mouse */
+  color: var(--color-bg-primary, #10121a);
+  background-color: var(--color-accent-1, #40e0d0);
+  /* Efecto "Glow" */
+  box-shadow: 0 0 12px rgba(var(--color-accent-1-rgb, 64, 224, 208), 0.6);
+  transform: translateY(-2px);
+}
+
+/* --- Botón Eliminar --- */
+.btn-delete {
+  /* Usa el acento secundario (magenta) como señal de "peligro" */
+  color: var(--color-accent-2, #e040fb);
+  border: 1px solid var(--color-accent-2, #e040fb);
+  background-color: rgba(var(--color-accent-2-rgb, 224, 64, 251), 0.1);
+}
+
+.btn-delete:hover,
+.btn-delete:focus {
+  /* Se invierte al pasar el mouse */
+  color: var(--color-bg-primary, #10121a);
+  background-color: var(--color-accent-2, #e040fb);
+  /* Efecto "Glow" */
+  box-shadow: 0 0 12px rgba(var(--color-accent-2-rgb, 224, 64, 251), 0.6);
+  transform: translateY(-2px);
+}
+
+/* Estado de Foco (Accesibilidad) */
+.btn-action:focus {
+  outline: none;
+  /* El box-shadow del hover ya sirve como indicador de foco */
+}
